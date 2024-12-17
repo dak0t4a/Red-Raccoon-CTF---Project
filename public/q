@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Red Raccoon CTF</title>
+    <link rel="icon" type="image/png" href="./images/icon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Estilo para las imágenes circulares */
+        .circular-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        /* Estilo para las gráficas */
+        .chart-canvas {
+            max-width: 80px;
+            max-height: 20px;
+            margin-left: 10px;
+            display: inline-block; /* Para que esté en la misma línea */
+        }
+
+        .d-flex-right {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .difficulty-text {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body class="imgloaded">
+    <div class="glitch">
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+    </div>
+    <div class="navbar-dark text-white">
+        <div class="container">
+            <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a href="index.html" class="pl-md-0 p-3 text-decoration-none text-light d-flex align-items-center">
+                            <img src="./images/logo.png" alt="Red Raccoon Logo" style="height: 40px; width: 40px;">
+                            <h3 class="bold mb-0"><span class="color_danger">RED</span><span class="color_white">RACCOON</span></h3>
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a href="instructionslogin.html" class="p-3 text-decoration-none text-light bold">Reglas</a>
+                        <a href="quests.html" class="p-3 text-decoration-none text-light bold">Retos</a>
+                        <a href="hackerboard.html" class="p-3 text-decoration-none text-light bold">Hackerboard</a>
+                        <a href="login.html" class="p-3 text-decoration-none text-light bold">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="jumbotron bg-transparent mb-0 pt-0 radius-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 text-center">
+                    <h1 class="display-1 bold color_white content__title">RETOS<span class="vim-caret">&nbsp;</span></h1>
+                    <p class="text-grey text-spacey hackerFont lead mb-5" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px;">
+                        Es tiempo de mostrarle al mundo lo que puedes hacer!
+                    </p>                    
+                </div>
+            </div>
+
+            <div class="row hackerFont justify-content-center mt-5">
+                <div class="col-md-12">
+                    <h4>Máquinas</h4>
+                </div>
+                
+                <!-- Contenedor dinámico para problemas -->
+                <div id="problems-container" class="col-md-12"></div>
+            </div>
+            <div class="row hackerFont justify-content-center mt-5">
+                <div class="col-md-12">
+                    Grado de dificultad:
+                    <span style="color:#17b06b">Muy fácil,</span>
+                    <span style="color:#17b06b">Fácil,</span>
+                    <span style="color:#ffce56">Medio,</span>
+                    <span style="color:#ef121b">Difícil,</span>
+                    <span style="color:#ef121b">Muy difícil,</span>
+                    <br><br>Tipos de retos:
+                    <span class="p-1" style="background-color:#ef121b94">Web</span>
+                    <span class="p-1" style="background-color:#17b06b94">Reversing</span>
+                    <span class="p-1" style="background-color:#f9751594">Esteganografía</span>
+                    <span class="p-1" style="background-color:#36a2eb94">Pwning</span>
+                    <span class="p-1" style="background-color:#9966FF94">Criptografía</span>
+                    <span class="p-1" style="background-color:#ffce5694">Otro</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Datos de las máquinas, incluyendo la ruta de la imagen
+        const machines = [
+            { name: "Headache", category: '<span class="p-1" style="background-color:#ef121b94">Web</span>', solvers: 76, dataset: [41, 42, 43, 44, 45], html: "headache.html", image: "images/headache.png" },
+            { name: "Memberberries", category: '<span class="p-1" style="background-color:#36a2eb94">Pwning</span>', solvers: 65, dataset: [10, 9, 8, 7, 6], html: "memberberries.html", image: "images/memberberries.png" },
+            { name: "Manolito", category: '<span class="p-1" style="background-color:#17b06b94">Reversing</span>', solvers: 50, dataset: [21, 16, 23, 1, 15], html: "manolito.html", image: "images/manolito.png" }
+        ];
+
+        // Función para crear la gráfica de dificultad
+        function createBarChart(canvasId, data) {
+            const ctx = document.getElementById(canvasId).getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Easy1", "Easy2", "Medium3", "Hard4", "Hard5"],
+                    datasets: [{
+                        backgroundColor: ["#17b06b", "#17b06b", "#ffce56", "#ef121b", "#ef121b"],
+                        data: data
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    legend: { display: false },
+                    scales: {
+                        yAxes: [{ display: false }],
+                        xAxes: [{ display: false }]
+                    }
+                }
+            });
+        }
+
+        // Función para renderizar las tarjetas de problemas
+        function renderProblems() {
+            const container = document.getElementById("problems-container");
+
+            machines.forEach((machine, index) => {
+                // Crear la tarjeta del problema
+                const card = document.createElement("div");
+                card.className = "card category_machine mb-3";
+
+                // Contenido de la tarjeta
+                card.innerHTML = `
+                    <a href="${machines.html}" class="color_white">
+                        <div class="card-header d-flex align-items-center">
+                            <!-- Imagen circular -->
+                            <img src="${machine.image}" alt="${machine.name}" class="circular-img">
+                            <div>
+                                <strong>${machine.name}</strong>
+                                ${machine.category}
+                                <span class="ml-4 badge align-self-end">${machine.solvers} solvers</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex-right">
+                            <span class="difficulty-text">Dificultad</span>
+                            <canvas id="chart_${index}" class="chart-canvas"></canvas>
+                        </div>
+                    </a>
+                `;
+
+                // Agregar tarjeta al contenedor
+                container.appendChild(card);
+
+                // Crear la gráfica
+                createBarChart(`chart_${index}`, machine.dataset);
+            });
+        }
+
+        // Renderizar al cargar la página
+        window.onload = renderProblems;
+    </script>
+</body>
+
+</html>

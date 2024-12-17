@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Red Raccoon CTF</title>
+    <link rel="icon" type="image/png" href="./images/icon.ico">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    <script src="js/chart.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+</head>
+
+<body class="imgloaded">
+    <div class="glitch">
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+        <div class="glitch__img"></div>
+    </div>
+    <div class="navbar-dark text-white">
+        <div class="container">
+            <nav class="navbar px-0 py-0 navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a href="index.html" class="pl-md-0 p-3 text-decoration-none text-light d-flex align-items-center">
+                            <img src="./images/logo.png" alt="Red Raccoon Logo" style="height: 40px; width: 40px;">
+                            <h3 class="bold mb-0"><span class="color_danger">RED</span><span class="color_white">RACCOON</span></h3>
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a href="instructionslogin.html" class="p-3 text-decoration-none text-light bold">Reglas</a>
+                        <a href="quests.html" class="p-3 text-decoration-none text-light bold">Retos</a>
+                        <a href="hackerboard.html" class="p-3 text-decoration-none text-light bold">Hackerboard</a>
+                        <a href="login.html" class="p-3 text-decoration-none text-light bold">Logout</a>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+    <div class="jumbotron bg-transparent mb-0 pt-0 radius-0">
+        <div class="container">
+            <div class="row">
+                <<div class="col-xl-12 text-center">
+                    <div>
+                        <img src="./images/headache.png" alt="Circular Image" style="width: 130px; height: 130px; border-radius: 50%;">
+                    </div>
+                    <h1 class="display-1 bold color_white content__title">HEADACHE<span class="vim-caret">&nbsp;</span></h1>
+                    <p class="text-grey text-spacey hackerFont lead mb-5" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px;">La máquina <em>Headache</em> desafía tus habilidades en aplicaciones web, exponiendo vulnerabilidades críticas como el <strong>Unrestricted File Upload</strong>. Aquí, cualquier archivo subido podría ser tu perdición o tu salvación. ¿Podrás identificar y explotar los puntos débiles sin caer en trampas inesperadas?</p>
+                </div>                
+            
+            
+            <!-- Nueva sección agregada -->
+            <div class="col-md-12 mb-3">
+                <div class="card category_crypt">
+                    <div class="card-header" data-target="#problem_id_6" data-toggle="collapse" aria-expanded="false" aria-controls="problem_id_6">
+                        <h5 style="font-size: 20px; font-weight: bold;">Lección: Seguridad en File Upload</h5>
+                        <span class="badge align-self-end">+ Información</span>
+                        <div class="pl-2">
+                            <canvas style="width:80px;height:20px" id="problem_id_6_chart"></canvas>
+                        </div>
+                    </div>                    
+                    <div id="problem_id_6" class="collapse card-body">
+                        <blockquote class="card-blockquote">
+                            <div style="display: flex;">
+                                <h6 class="solvers">Solvers: <span class="solver_num">76</span> &nbsp;<span class="color_danger">Web</span></h6>
+                                <div class="pl-2"><canvas style="width:80px;height:20px" id="problem_id_6_chart"></canvas></div>
+                            </div>
+                            <h5>Lección sobre Unrestricted File Upload</h5>
+                            <p><strong>¿Qué es Unrestricted File Upload?</strong></p>
+                            <p>Un "Unrestricted File Upload" ocurre cuando una aplicación web permite a un atacante subir archivos sin restricciones adecuadas. Esto significa que cualquier archivo, independientemente de su tipo o extensión, puede ser subido al servidor.</p>
+                            <p>Esta vulnerabilidad puede permitir al atacante ejecutar código malicioso, robar datos sensibles y comprometer el sistema.</p>
+                            
+                            <p><strong>Principales riesgos:</strong></p>
+                            <ul>
+                                <li>Ejecución remota de comandos (Remote Code Execution - RCE)</li>
+                                <li>Exposición de archivos confidenciales del servidor</li>
+                                <li>Infección con malware</li>
+                            </ul>
+                            
+                            <p><strong>Cómo funciona un ataque de Unrestricted File Upload:</strong></p>
+                            <p>El atacante sube un archivo PHP o cualquier otro archivo ejecutable. Luego, accede al archivo en el servidor, lo ejecuta y obtiene acceso no autorizado a funciones críticas.</p>
+                            
+                            <p><strong>Mitigación:</strong></p>
+                            <ol>
+                                <li><strong>Validación del lado del servidor:</strong> Asegurarse de que el servidor solo permita archivos con extensiones y tipos permitidos.</li>
+                                <li><strong>Uso de nombres únicos:</strong> Renombrar archivos subidos para evitar ataques de path traversal.</li>
+                                <li><strong>Configuración segura del sistema operativo:</strong> Ejecutar aplicaciones web con permisos limitados.</li>
+                            </ol>
+                    
+                            <p>¿Puedes encontrar la contraseña? Ingresa la contraseña como flag en el siguiente formulario: REDR4CO0N_ctf{algún_texto}</p>
+                            
+                            <a href="#hint" data-toggle="modal" data-target="#hint" class="btn btn-outline-secondary btn-shadow">
+                                <span class="far fa-lightbulb mr-2"></span> Pista
+                            </a>
+                    
+                            <div class="input-group mt-3">
+                                <input type="text" class="form-control" id="codeInput" placeholder="Ingresa la Flag" aria-label="Enter Flag" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button id="verifyCodeBtn" class="btn btn-outline-secondary" type="button">Ir!</button>
+                                </div>
+                            </div>
+                        </blockquote>
+                    </div>                    
+                </div>
+            </div>
+            <!-- Fin de la nueva sección agregada -->
+
+            </div>
+            <div class="row hackerFont">
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card p-3 text-center">
+                        <h4>Dificultad</h4>
+                        <!-- Gráfica compacta de dificultad -->
+                        <canvas id="difficultyMiniChart" height="50" class="chart-canvas mt-2"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center">
+                        <h4>Datos adicionales</h4>
+                        <ul class="list-unstyled">
+                            <li><b>Puntos base:</b> 80</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center">
+                        <h4>Estado de la Máquina</h4>
+                        <button id="start-button" class="btn btn-outline-secondary">Iniciar Máquina</button>
+                        <button id="stop-button" class="btn btn-outline-secondary" style="display: none;">Detener Máquina</button>
+                        <!-- Alerta -->
+                        <div id="status-message" class="alert alert-warning mt-3" role="alert" style="display: none;"></div>
+                        <p id="status-message" class="mt-3" style="display: none;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espacio adicional antes del rectángulo -->
+            <div class="mt-3"></div>
+
+            <!-- Sección para mostrar la IP del contenedor -->
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card border-primary text-center">
+                        <div class="card-body py-2">
+                            <h6>IP: <span id="container-ip"></span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espacio adicional antes del rectángulo -->
+            <div class="mt-3"></div>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="organizers">¿Fue el entorno de la máquina fácil de configurar e interactuar?</label>
+                    <select class="custom-select d-block w-100" id="organizers">
+                        <option value="">Selecciona una respuesta</option>
+                        <option>Demasiado fácil</option>
+                        <option>Apropiado</option>
+                        <option>Muy difícil</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor escoge una respuesta</div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label for="maintainers">¿Funcionó correctamente la máquina o hubo problemas técnicos?</label>
+                    <select class="custom-select d-block w-100" id="maintainers">
+                        <option value="">Selecciona una respuesta</option>
+                        <option>Funcionó perfectamente</option>
+                        <option>Algunos problemas</option>
+                        <option>Muchos problemas</option>
+                    </select>
+                </div>
+                <div class="invalid-feedback">Please choose a rating</div>
+            </div>
+
+            <!-- Espacio adicional entre "How supportive" y "Rate the challenge" -->
+            <div class="mt-4"></div>
+                
+            <div class="col-md-12 mt-4">
+                <div class="card border-primary mb-3 text-center align-challenge">
+                    <div class="card-body">
+                        <h4>Califica la dificultad del reto</h4>
+                        <div class="row input-group mt-3 justify-content-center">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio1_p1" name="customRadio_p1" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio1_p1" checked=false>Muy fácil</label>
+                            </div>
+                            <div class="ht-tm-element custom-control custom-radio">
+                                <input type="radio" id="customRadio2_p1" name="customRadio_p1" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio2_p1">Fácil</label>
+                            </div>
+                            <div class="ht-tm-element custom-control custom-radio">
+                                <input type="radio" id="customRadio3_p1" name="customRadio_p1" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio3_p1">Medio</label>
+                            </div>
+                            <div class="ht-tm-element custom-control custom-radio">
+                                <input type="radio" id="customRadio4_p1" name="customRadio_p1" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio4_p1">Difícil</label>
+                            </div>
+                            <div class="ht-tm-element custom-control custom-radio">
+                                <input type="radio" id="customRadio5_p1" name="customRadio_p1" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio5_p1">Muy difícil</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <div class="modal fade" id="hint" tabindex="-1" role="dialog" aria-labelledby="hint label" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    No todo lo que subes es lo que parece, explora más allá de lo visible
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Script para Iniciar el Contenedor -->
+    <script>
+        // Inicia el contenedor cuando el usuario presiona el botón "Iniciar"
+        document.getElementById('start-button').addEventListener('click', async () => {
+            const statusMessage = document.getElementById('status-message');
+
+            // Muestra mensaje de estado inicial
+            statusMessage.style.display = 'block';
+            statusMessage.classList.remove('alert-danger', 'alert-success');
+            statusMessage.classList.add('alert-warning');
+            statusMessage.textContent = 'Iniciando contenedor...';
+
+            try {
+                const response = await fetch('/start', { method: 'POST' });
+                const data = await response.json();
+
+                if (data.error) {
+                    statusMessage.classList.remove('alert-warning');
+                    statusMessage.classList.add('alert-danger');
+                    statusMessage.textContent = 'Error al iniciar el contenedor';
+                } else {
+                    document.getElementById('start-button').style.display = 'none';
+                    document.getElementById('stop-button').style.display = 'inline-block';
+                    document.getElementById('container-ip').textContent = data.ip;
+                    document.getElementById('container-ip').style.display = 'block';
+
+                    statusMessage.classList.remove('alert-warning');
+                    statusMessage.classList.add('alert-success');
+                    statusMessage.textContent = 'Contenedor iniciado con éxito';
+                }
+            } catch (error) {
+                statusMessage.classList.remove('alert-warning');
+                statusMessage.classList.add('alert-danger');
+                statusMessage.textContent = 'Error al iniciar el contenedor';
+            } finally {
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+
+    <!-- Script para Detener el Contenedor -->
+    <script>
+        // Detiene el contenedor cuando el usuario presiona el botón "Detener"
+        document.getElementById('stop-button').addEventListener('click', async () => {
+            const statusMessage = document.getElementById('status-message');
+
+            // Muestra mensaje de estado para detener el contenedor
+            statusMessage.style.display = 'block';
+            statusMessage.classList.remove('alert-danger', 'alert-success');
+            statusMessage.classList.add('alert-warning');
+            statusMessage.textContent = 'Deteniendo contenedor...';
+
+            try {
+                const response = await fetch('/stop', { method: 'POST' });
+                const data = await response.json();
+
+                if (data.error) {
+                    statusMessage.classList.remove('alert-warning');
+                    statusMessage.classList.add('alert-danger');
+                    statusMessage.textContent = 'Error al detener el contenedor';
+                } else {
+                    document.getElementById('start-button').style.display = 'inline-block';
+                    document.getElementById('stop-button').style.display = 'none';
+                    document.getElementById('container-ip').style.display = 'none';
+
+                    statusMessage.classList.remove('alert-warning');
+                    statusMessage.classList.add('alert-success');
+                    statusMessage.textContent = 'Contenedor detenido con éxito';
+                }
+            } catch (error) {
+                statusMessage.classList.remove('alert-warning');
+                statusMessage.classList.add('alert-danger');
+                statusMessage.textContent = 'Error al detener el contenedor';
+            } finally {
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+
+    <!-- Script para la Configuración de la Modal Hint -->
+    <script>
+        // Muestra la modal con la pista cuando el usuario la solicita
+        $(document).ready(function() {
+            $('#hint').modal({
+                show: false
+            });
+        });
+    </script>
+
+    <!-- Script para crear la gráfica compacta de dificultad -->
+    <script>
+        /**
+        * Crea la gráfica compacta de dificultad con proporciones y colores ajustados.
+        * @param {string} canvasId - El ID del canvas HTML.
+        * @param {Array} data - Valores para cada nivel de dificultad.
+        */
+        function createBarChart(canvasId, data) {
+            const ctx = document.getElementById(canvasId).getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Fácil", "Medio", "Difícil", "Muy difícil", "Extremo"],
+                    datasets: [{
+                        label: "Niveles",
+                        backgroundColor: ['#17b06b', '#ffeb3d', '#ff5722', '#f44336', '#9c27b0'],
+                        data: data
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    scales: {
+                        xAxes: [{ display: false }],
+                        yAxes: [{
+                            display: false,
+                            ticks: { beginAtZero: true }
+                        }]
+                    }
+                }
+            });
+        }
+
+        // Crea y configura la gráfica compacta al cargar la página
+        function createDifficultyMiniChart() {
+            const data = [20, 40, 70, 90, 60];
+            createBarChart('difficultyMiniChart', data);
+        }
+
+        window.onload = createDifficultyMiniChart;
+    </script>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<input type="hidden" id="retoId" value="1"> <!-- Este valor debe ser el ID del reto actual -->
+
+<script>
+document.getElementById('verifyCodeBtn').addEventListener('click', async () => {
+  const code = document.getElementById('codeInput').value;
+  const retoId = document.getElementById('retoId').value;
+
+  try {
+    const response = await fetch('/checkCode', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code, retoId })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(data.message); // Muestra el mensaje si el código es correcto
+    } else {
+      alert(data.error); // Muestra el error si el código es incorrecto
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Hubo un error al verificar el código');
+  }
+});
+</script>
+
+
+</body>
+
+</html>
